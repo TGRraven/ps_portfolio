@@ -1484,6 +1484,19 @@ section {
         flex-direction: column;
     }
 
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-image {
+        order: 1;
+    }
+
+    .hero-text {
+        order: 2;
+    }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
