@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interview Skills - Develop confidence and competence in various interview formats">
+    <title>Interview Skills | PS Chapter 03</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-secondary: #f9fafb;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .chapter-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: var(--text-primary);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .chapter-hero .chapter-number {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .chapter-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .chapter-content {
+            padding: 4rem 0;
+        }
+
+        .section-container {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+
+        .intro-section {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .communication-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .communication-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .communication-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .communication-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .communication-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .communication-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .best-practices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .practice-card {
+            background: linear-gradient(135deg, white, var(--bg-secondary));
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .practice-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .practice-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .practice-card p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .pitfalls-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            border-radius: 2rem;
+            margin: 4rem 0;
+        }
+
+        .pitfalls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .pitfall-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            border: 2px solid #ef4444;
+            transition: var(--transition);
+        }
+
+        .pitfall-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pitfall-item p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .six-cs-section {
+            margin-top: 4rem;
+        }
+
+        .six-cs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .c-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .c-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .c-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .c-card p {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .chapter-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-button.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .nav-button.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .page-footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .page-footer p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .footer-copyright {
+            background: var(--bg-secondary);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .chapter-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .chapter-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .communication-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .best-practices {
+                grid-template-columns: 1fr;
+            }
+
+            .pitfalls-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .six-cs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">Udara</a>
+                    <span class="student-id">SA24610010</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="index.html#education" class="nav-link">Education</a></li>
+                    <li><a href="ps-chapter.html" class="nav-link active">PS Chapter</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chapter Hero -->
+    <section class="chapter-hero">
+        <div class="container">
+            <div class="chapter-hero-content">
+                <span class="chapter-number">03. Interview Skills</span>
+                <h1>Interview Skills</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter Content -->
+    <section class="chapter-content">
+        <div class="container">
+            <!-- What is a Job Interview? -->
+            <div class="section-container">
+                <h2 class="section-title">What is a Job Interview?</h2>
+                <div class="intro-section">
+                    <p>
+                        A job interview is a conversation between a job applicant and a representative of the organization 
+                        that is looking forward to hiring the interviewee. Everyone involved in a job interview has a common 
+                        purpose - to determine if there's a good fit between the candidate and the position.
+                    </p>
+                </div>
+            </div>
+
+            <!-- The Role of Effective Communication -->
+            <div class="section-container">
+                <h2 class="section-title">The Role of Effective Communication</h2>
+                <div class="communication-grid">
+                    <div class="communication-card">
+                        <h3>Verbal Communication</h3>
+                    </div>
+                    <div class="communication-card">
+                        <h3>Non-Verbal Communication</h3>
+                    </div>
+                    <div class="communication-card">
+                        <h3>Active Listening</h3>
+                    </div>
+                    <div class="communication-card">
+                        <h3>Responding</h3>
+                    </div>
+                    <div class="communication-card">
+                        <h3>Questioning</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Communication Best Practices -->
+            <div class="section-container">
+                <h2 class="section-title">Communication Best Practices</h2>
+                <div class="best-practices">
+                    <div class="practice-card">
+                        <h3>Learn to Smile and Greet</h3>
+                        <p>Practice a warm, genuine smile and professional greeting to create a positive first impression.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Maintain Eye Contact</h3>
+                        <p>Keep positive and comfortable eye contact to show confidence and engagement throughout the interview.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h3>Proper Posture</h3>
+                        <p>Sit firmly and straight on your chair to project confidence and professionalism.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Common Pitfalls -->
+            <div class="pitfalls-section">
+                <div class="container">
+                    <h2 class="section-title">Common Pitfalls of Unsuccessful Candidates</h2>
+                    <div class="pitfalls-grid">
+                        <div class="pitfall-item">
+                            <p>Vague Ideas</p>
+                        </div>
+                        <div class="pitfall-item">
+                            <p>Little eye contact</p>
+                        </div>
+                        <div class="pitfall-item">
+                            <p>No company research</p>
+                        </div>
+                        <div class="pitfall-item">
+                            <p>Neutral Tone</p>
+                        </div>
+                        <div class="pitfall-item">
+                            <p>Few or no questions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6C's of Effective Communication -->
+            <div class="section-container six-cs-section">
+                <h2 class="section-title">6C's of Effective Communication</h2>
+                <div class="six-cs-grid">
+                    <div class="c-card">
+                        <h3>Clear</h3>
+                    </div>
+                    <div class="c-card">
+                        <h3>Concise</h3>
+                    </div>
+                    <div class="c-card">
+                        <h3>Correct</h3>
+                    </div>
+                    <div class="c-card">
+                        <h3>Complete</h3>
+                    </div>
+                    <div class="c-card">
+                        <h3>Concrete</h3>
+                    </div>
+                    <div class="c-card">
+                        <h3>Confident</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-navigation">
+                <a href="ps-chapter.html" class="nav-button secondary">
+                    <i class="fas fa-arrow-left"></i> Back to PS Topics
+                </a>
+                <a href="ps-04-negotiation-skills.html" class="nav-button">
+                    Next: Negotiation Skills <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <p>Professional Skills Development - Building Tomorrow's Leaders</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">&copy; 2025 Udara Shehan. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Skills (PS) Chapters - Essential skills for professional success">
+    <title>PS Chapter | Professional Skills Chapters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-secondary: #f9fafb;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .ps-page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: var(--text-primary);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ps-page-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .ps-page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .ps-page-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+            line-height: 1.7;
+        }
+
+        .ps-content-section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .ps-content-section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+
+        .ps-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ps-feature-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .ps-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .ps-feature-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .ps-feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .ps-timeline-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .ps-event-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+            transition: var(--transition);
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .ps-event-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .ps-event-date {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .ps-event-card.hidden {
+            display: none;
+        }
+        
+
+        .ps-event-card h3 {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .ps-resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .ps-resource-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ps-resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .ps-resource-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 0.5rem;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .ps-resource-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+        }
+
+        .ps-resource-info p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .back-to-home {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">Udara</a>
+                    <span class="student-id">SA24610010</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="index.html#education" class="nav-link">Education</a></li>
+                    <li><a href="ps-chapter.html" class="nav-link active">PS Chapter</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="ps-page-hero">
+        <div class="container">
+            <div class="ps-page-hero-content">
+                <p style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.875rem; font-weight: 500;">PS Chapter</p>
+                <h1>Professional Skills (PS) Chapters</h1>
+                <p>
+                    Master the essential soft skills and interpersonal abilities that drive career success. 
+                    From communication to leadership, these comprehensive chapters will transform your professional 
+                    capabilities and unlock new opportunities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="ps-content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Us</span>
+                <h2 class="section-title">What are Professional Skills (PS) Chapters?</h2>
+                <p class="section-subtitle">
+                    Professional Skills, also known as soft skills or employability skills, are the non-technical, 
+                    interpersonal abilities that are essential for success in the workplace. These skills complement 
+                    technical expertise and play a crucial role in career advancement, team collaboration, and overall 
+                    professional effectiveness.
+                </p>
+            </div>
+            <div class="ps-features-grid">
+                <div class="ps-feature-card">
+                    <i class="fas fa-comments ps-feature-icon" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Communication Skills</h3>
+                    <p>
+                        Develop effective verbal and written communication abilities, including 
+                        presentation skills, active listening, and professional correspondence.
+                    </p>
+                </div>
+                <div class="ps-feature-card">
+                    <i class="fas fa-users ps-feature-icon" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Leadership & Teamwork</h3>
+                    <p>
+                        Build leadership capabilities and learn to work collaboratively in teams, 
+                        manage conflicts, and inspire others to achieve common goals.
+                    </p>
+                </div>
+                <div class="ps-feature-card">
+                    <i class="fas fa-brain ps-feature-icon" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Critical Thinking</h3>
+                    <p>
+                        Enhance analytical thinking, problem-solving abilities, and decision-making 
+                        skills essential for professional success and innovation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="ps-content-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Explore Professional Skills</span>
+                <h2 class="section-title">Choose a topic to begin your professional development journey</h2>
+            </div>
+            <div class="ps-timeline-section" id="ps-topics">
+                <a href="ps-01-introduction.html" class="ps-event-card" data-topic="introduction professional skills foundation employability workplace johari window">
+                    <div class="ps-event-date">01</div>
+                    <h3>Introduction to Professional Skills</h3>
+                    <p>
+                        Foundation module covering employability skills, workplace competencies, and the Johari Window framework.
+                    </p>
+                </a>
+                <a href="ps-02-cv-cover-letter.html" class="ps-event-card" data-topic="cv cover letter writing qualifications">
+                    <div class="ps-event-date">02</div>
+                    <h3>CV and Cover Letter Writing</h3>
+                    <p>
+                        Master the art of creating compelling CVs and cover letters that effectively showcase your qualifications.
+                    </p>
+                </a>
+                <a href="ps-03-interview-skills.html" class="ps-event-card" data-topic="interview skills confidence presentation techniques">
+                    <div class="ps-event-date">03</div>
+                    <h3>Interview Skills</h3>
+                    <p>
+                        Develop confidence and competence in various interview formats and presentation techniques.
+                    </p>
+                </a>
+                <a href="ps-04-negotiation-skills.html" class="ps-event-card" data-topic="negotiation skills salary workplace conflicts">
+                    <div class="ps-event-date">04</div>
+                    <h3>Negotiation Skills</h3>
+                    <p>
+                        Learn effective negotiation strategies for salary discussions and workplace conflicts.
+                    </p>
+                </a>
+                <a href="ps-05-portfolio-writing.html" class="ps-event-card" data-topic="portfolio writing professional showcase achievements">
+                    <div class="ps-event-date">05</div>
+                    <h3>Portfolio Writing</h3>
+                    <p>
+                        Create compelling professional portfolios that showcase your work and achievements.
+                    </p>
+                </a>
+                <a href="ps-06-telephone-etiquettes.html" class="ps-event-card" data-topic="telephone etiquettes professional communication business calls">
+                    <div class="ps-event-date">06</div>
+                    <h3>Telephone Etiquettes</h3>
+                    <p>
+                        Master professional telephone communication skills for business calls and client interactions.
+                    </p>
+                </a>
+                <a href="ps-07-email-etiquettes.html" class="ps-event-card" data-topic="email etiquettes professional communication business correspondence">
+                    <div class="ps-event-date">07</div>
+                    <h3>Email Etiquettes</h3>
+                    <p>
+                        Learn professional email communication standards and best practices for business correspondence.
+                    </p>
+                </a>
+                <a href="ps-08-research-writing.html" class="ps-event-card" data-topic="research writing abstracts reports papers arcscu keynote speeches">
+                    <div class="ps-event-date">08</div>
+                    <h3>Research Writing</h3>
+                    <p>
+                        Develop skills in writing concise, informative abstracts for reports and research papers. Also includes ARCSCU (Keynote Speeches Assignment).
+                    </p>
+                </a>
+                <a href="ps-09-english-day.html" class="ps-event-card" data-topic="english day arrival english sri lanka stall project">
+                    <div class="ps-event-date">09</div>
+                    <h3>English Day</h3>
+                    <p>
+                        The Arrival of English in Sri Lanka – English Day Stall Project. An immersive exhibit narrating how the English language evolved across trade, education, and modern technology.
+                    </p>
+                </a>
+                <a href="ps-10-emotional-intelligence.html" class="ps-event-card" data-topic="emotional intelligence self-awareness empathy emotional regulation">
+                    <div class="ps-event-date">10</div>
+                    <h3>Emotional Intelligence</h3>
+                    <p>
+                        Develop emotional intelligence skills including self-awareness, empathy, and emotional regulation.
+                    </p>
+                </a>
+                <a href="ps-11-dining-etiquettes.html" class="ps-event-card" data-topic="dining etiquettes professional business meals client dinners formal occasions">
+                    <div class="ps-event-date">11</div>
+                    <h3>Dining Etiquettes</h3>
+                    <p>
+                        Master professional dining etiquette for business meals, client dinners, and formal occasions.
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home -->
+    <section class="back-to-home">
+        <div class="container">
+            <a href="index.html" class="btn btn-primary">Back to Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Udara Shehan. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html#home">Home</a>
+                    <a href="index.html#about">About</a>
+                    <a href="index.html#projects">Projects</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

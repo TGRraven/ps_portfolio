@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research Writing - Develop skills in writing concise, informative abstracts for reports and research papers">
+    <title>Research Writing | PS Chapter 08</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-secondary: #f9fafb;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .chapter-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: var(--text-primary);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .chapter-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .chapter-content {
+            padding: 4rem 0;
+        }
+
+        .section-container {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+
+        .intro-section {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .component-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .component-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .component-item p {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .types-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            border-radius: 2rem;
+            margin: 4rem 0;
+        }
+
+        .type-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .type-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .type-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .type-card h3 {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .type-card p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .type-card h4 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .type-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .type-card li {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .type-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .why-section {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .why-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timing-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .timing-section h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .timing-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .how-to-section {
+            margin: 4rem 0;
+        }
+
+        .steps-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .step-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .step-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-item p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .abstract-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            border-radius: 2rem;
+            margin: 4rem 0;
+        }
+
+        .abstract-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .abstract-info p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .abstract-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .four-cs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .c-item {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .c-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .types-simple {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .type-simple-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .type-simple-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .type-simple-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .learn-section {
+            background: linear-gradient(135deg, var(--bg-secondary), white);
+            padding: 4rem 0;
+            border-radius: 2rem;
+            margin: 4rem 0;
+        }
+
+        .learn-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .learn-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .learn-item p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .chapter-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-button.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .nav-button.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .page-footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .page-footer p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .footer-copyright {
+            background: var(--bg-secondary);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .chapter-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .chapter-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .four-cs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .types-simple {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">Udara</a>
+                    <span class="student-id">SA24610010</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="index.html#education" class="nav-link">Education</a></li>
+                    <li><a href="ps-chapter.html" class="nav-link active">PS Chapter</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chapter Hero -->
+    <section class="chapter-hero">
+        <div class="container">
+            <div class="chapter-hero-content">
+                <h1>Research Writing</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter Content -->
+    <section class="chapter-content">
+        <div class="container">
+            <!-- What is Abstract Writing? -->
+            <div class="section-container">
+                <h2 class="section-title">What is Abstract Writing?</h2>
+                <div class="intro-section">
+                    <p>
+                        Abstract writing means a condensed form of a longer piece of writing. There are two main types of 
+                        abstract that serve different purposes in academic and professional communication.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Components of a Research Paper -->
+            <div class="section-container">
+                <h2 class="section-title">Components of a Research Paper</h2>
+                <div class="components-grid">
+                    <div class="component-item">
+                        <p>Title</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Author Details (Affiliation must be mentioned)</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Table of Content</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Abstract</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Declaration</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Acknowledgment</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Abstract</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Introduction (Background of the study)</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Literature Review</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Methodology</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Results and Discussions</p>
+                    </div>
+                    <div class="component-item">
+                        <p>Conclusion and References</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Types of Abstracts -->
+            <div class="types-section">
+                <div class="container">
+                    <h2 class="section-title">Types of Abstracts</h2>
+                    
+                    <div class="type-card">
+                        <h3>Descriptive Abstract</h3>
+                        <p>
+                            For publications in the humanities, social sciences, or psychology, descriptive abstracts are 
+                            typically utilized. Usually, this kind of abstract is quite brief (between 50 and 100 words).
+                        </p>
+                        <h4>Essential Components:</h4>
+                        <ul>
+                            <li>Background</li>
+                            <li>Purpose</li>
+                            <li>Particular interest/focus of paper</li>
+                            <li>Overview of contents (not always included)</li>
+                        </ul>
+                    </div>
+
+                    <div class="type-card">
+                        <h3>Informative Abstract</h3>
+                        <p>
+                            Generally speaking, publications in the fields of science, engineering, or psychology use 
+                            informative abstracts. You have to sum up your report's main points in no more than 200 words.
+                        </p>
+                        <h4>Key Components:</h4>
+                        <ul>
+                            <li>Background</li>
+                            <li>Aim or purpose of research</li>
+                            <li>Method used</li>
+                            <li>Findings/results</li>
+                            <li>Conclusion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why do we write abstracts? -->
+            <div class="why-section">
+                <h2 class="section-title">Why do we write abstracts?</h2>
+                <p>
+                    Abstracts are crucial components of research papers, reports, and even academic tasks. Usually written 
+                    last, the abstract is the first thing readers see when they want a brief synopsis of the entire work.
+                </p>
+            </div>
+
+            <!-- Timing is Key -->
+            <div class="timing-section">
+                <h3>Timing is Key</h3>
+                <p>
+                    It is advised that you stop composing the abstract until the finish, as you'll have a better understanding 
+                    of all your discoveries and conclusions.
+                </p>
+            </div>
+
+            <!-- How do I write an abstract? -->
+            <div class="how-to-section">
+                <h2 class="section-title">How do I write an abstract?</h2>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <p>First re-read your paper/report for an overview. Then read each section and condense the information in each down to 1-2 sentences.</p>
+                    </div>
+                    <div class="step-item">
+                        <p>Next read these sentences again to ensure that they cover the major points in your paper.</p>
+                    </div>
+                    <div class="step-item">
+                        <p>Ensure you have written something for each of the key points outlined above for either the descriptive or informative abstract.</p>
+                    </div>
+                    <div class="step-item">
+                        <p>Check the word length and further reduce your words if necessary by cutting out unnecessary words or rewriting some of the sentences into a single, more succinct sentence.</p>
+                    </div>
+                    <div class="step-item">
+                        <p>Edit for flow and expression. Make sure your abstract reads smoothly and professionally.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abstract -->
+            <div class="abstract-section">
+                <div class="container">
+                    <h2 class="section-title">Abstract</h2>
+                    <div class="abstract-info">
+                        <p>Includes a summary of the study.</p>
+                        <p>It should be written as one paragraph (often 150 – 250 words).</p>
+                        <p>Include keywords.</p>
+                        <p>Should include the 4 C's of abstract writing:</p>
+                    </div>
+                    <div class="four-cs">
+                        <div class="c-item">Complete</div>
+                        <div class="c-item">Concise</div>
+                        <div class="c-item">Clear</div>
+                        <div class="c-item">Cohesive</div>
+                    </div>
+                    <h3 style="text-align: center; font-size: 1.75rem; color: var(--text-primary); margin-top: 3rem; margin-bottom: 2rem; font-weight: 600;">Types of Abstracts</h3>
+                    <div class="types-simple">
+                        <div class="type-simple-card">
+                            <h4>Informative abstracts</h4>
+                        </div>
+                        <div class="type-simple-card">
+                            <h4>Descriptive abstracts</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What I Learn -->
+            <div class="learn-section">
+                <div class="container">
+                    <h2 class="section-title">What I Learn</h2>
+                    <div class="learn-list">
+                        <div class="learn-item">
+                            <p>Purpose of abstracts in academic and professional writing</p>
+                        </div>
+                        <div class="learn-item">
+                            <p>Descriptive abstracts and their components</p>
+                        </div>
+                        <div class="learn-item">
+                            <p>Informative abstracts and their structure</p>
+                        </div>
+                        <div class="learn-item">
+                            <p>Key components of effective abstracts</p>
+                        </div>
+                        <div class="learn-item">
+                            <p>Writing abstracts last for better understanding</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-navigation">
+                <a href="ps-chapter.html" class="nav-button secondary">
+                    <i class="fas fa-arrow-left"></i> Back to PS Chapters
+                </a>
+                <a href="ps-09-english-day.html" class="nav-button">
+                    Next: English Day <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <p>Professional Skills Development - Building Tomorrow's Leaders</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">&copy; 2025 Udara Shehan. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

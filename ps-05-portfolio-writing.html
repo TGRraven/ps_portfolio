@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Writing - Create compelling professional portfolios that showcase your work">
+    <title>Portfolio Writing | PS Chapter 05</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-secondary: #f9fafb;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .chapter-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: var(--text-primary);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .chapter-hero .chapter-number {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .chapter-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .chapter-content {
+            padding: 4rem 0;
+        }
+
+        .section-container {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+
+        .intro-section {
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 1.5rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .intro-section p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .uses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .use-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .use-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .use-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .use-card h3 {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, white, var(--bg-secondary));
+            padding: 2.5rem 2rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .type-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .components-section {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
+            border-radius: 2rem;
+            margin: 4rem 0;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .component-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .component-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .component-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .component-card p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .chapter-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-button.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .nav-button.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .page-footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .page-footer p {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .footer-copyright {
+            background: var(--bg-secondary);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .chapter-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .chapter-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .uses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">Udara</a>
+                    <span class="student-id">SA24610010</span>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="index.html#education" class="nav-link">Education</a></li>
+                    <li><a href="ps-chapter.html" class="nav-link active">PS Chapter</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chapter Hero -->
+    <section class="chapter-hero">
+        <div class="container">
+            <div class="chapter-hero-content">
+                <span class="chapter-number">05. Portfolio Writing</span>
+                <h1>Portfolio Writing</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter Content -->
+    <section class="chapter-content">
+        <div class="container">
+            <!-- What is a Portfolio? -->
+            <div class="section-container">
+                <h2 class="section-title">What is a Portfolio?</h2>
+                <div class="intro-section">
+                    <p>
+                        A portfolio is a compilation of academic and professional materials that exemplifies your beliefs, 
+                        skills, qualifications, education, training, and experiences. It provides insight into your personality 
+                        and work ethic, serving as a comprehensive representation of your professional journey.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Uses of a Portfolio -->
+            <div class="section-container">
+                <h2 class="section-title">Uses of a Portfolio</h2>
+                <div class="uses-grid">
+                    <div class="use-card">
+                        <h3>Job Applications</h3>
+                    </div>
+                    <div class="use-card">
+                        <h3>Career Advancement</h3>
+                    </div>
+                    <div class="use-card">
+                        <h3>Creative Industries</h3>
+                    </div>
+                    <div class="use-card">
+                        <h3>Educational Assessments</h3>
+                    </div>
+                    <div class="use-card">
+                        <h3>Educational Admissions</h3>
+                    </div>
+                    <div class="use-card">
+                        <h3>Teaching and Education</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Types of Portfolios -->
+            <div class="section-container">
+                <h2 class="section-title">Types of Portfolios</h2>
+                <div class="types-grid">
+                    <div class="type-card">
+                        <h3>Personal Portfolio</h3>
+                    </div>
+                    <div class="type-card">
+                        <h3>Career/Dossier Portfolio</h3>
+                    </div>
+                    <div class="type-card">
+                        <h3>Employment Portfolio</h3>
+                    </div>
+                    <div class="type-card">
+                        <h3>Assessment Portfolio</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Portfolio Components -->
+            <div class="components-section">
+                <div class="container">
+                    <h2 class="section-title">Key Portfolio Components</h2>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h3>Beliefs and Values</h3>
+                            <p>Personal philosophy, work ethics, and core values that guide your professional decisions and actions.</p>
+                        </div>
+                        <div class="component-card">
+                            <h3>Skills and Abilities</h3>
+                            <p>Technical skills, soft skills, and competencies demonstrated through projects, certifications, and experiences.</p>
+                        </div>
+                        <div class="component-card">
+                            <h3>Qualifications and Education</h3>
+                            <p>Academic credentials, professional certifications, training programs, and educational achievements.</p>
+                        </div>
+                        <div class="component-card">
+                            <h3>Training and Development</h3>
+                            <p>Continuous learning initiatives, professional development activities, and skill enhancement programs.</p>
+                        </div>
+                        <div class="component-card">
+                            <h3>Professional Experiences</h3>
+                            <p>Work history, project outcomes, leadership roles, and significant professional accomplishments.</p>
+                        </div>
+                        <div class="component-card">
+                            <h3>Creative Work</h3>
+                            <p>Innovative projects, creative solutions, design work, and original contributions to your field.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-navigation">
+                <a href="ps-chapter.html" class="nav-button secondary">
+                    <i class="fas fa-arrow-left"></i> Back to PS Topics
+                </a>
+                <a href="ps-06-telephone-etiquettes.html" class="nav-button">
+                    Next: Telephone Etiquettes <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <p>Professional Skills Development - Building Tomorrow's Leaders</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">&copy; 2025 Udara Shehan. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
